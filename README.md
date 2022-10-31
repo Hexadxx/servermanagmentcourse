@@ -1,2 +1,3 @@
-# servermanagmentcourse
-Repository for the Server Managment course by Tero Karvinen
+# Server managment course
+Hello this is the documentation for the server managment course by Tero Karvinen.
+## 
