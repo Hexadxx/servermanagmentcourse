@@ -62,3 +62,56 @@ For this homework was about using something else besdes file.managed state which
 
 (note. all of the commands and knowledge I used here were mostly gotten from the lecture as I saved screenshots from it unless mentioned otherwise). 
 
+# H2 Package-File Service homework
+
+## First assignment (x)
+
+For this assignment we were told to give a short summary from an article: https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/ and the chapters "Understanding SaltStack", "SaltStack Fundamentals" and "SaltStack Configuration Managment Functions" from [Salt official documentation](https://docs.saltproject.io/en/getstarted/)
+
+### Karvinen 2018: Salt Quickstart - Salt Stack Master and Slave on Ubuntu Linux
+
+- The article is a quick guide to how to install a master and a slave machine.
+- It also shows how to connect the master and slave machines.
+- The article also shows some commands you can use on your slave machine.
+
+### Understanding SaltStack
+
+- All salt slaves receive commands simultaneously
+- Every slave you have can be set to do their own thing and to call that specific slave you can use the set properties and arguments to specify which slave to use.
+- Salt can be used to manage thousands of slaves at the same time.
+- You can also automate most of the functions on Salt
+
+### SaltStack Fundamentals 
+
+- This chapter goes on how to install demo machines to test saltstack
+- It also shows how to install saltstack also how to test, but as the chapter said it used the demo that you previously used it already had salt installed and I hoped regardless of that they would've showed the commands how to install it
+- Also shows how to setup the master-minion connection and how to test it.
+- It shows how to create salt states and target or apply states
+
+### SaltStack Configuration Managment Functions
+
+- On this chapter I learnt how to Call Salt state functions
+- Understand the difference between Salt state and Salt execution functions
+- Create the pillar Top.sls file 
+- Define and assign some pillar keys to your systems
+- Understand the default execution order
+- Use requisites to declare execution order
+- The chapter also has a lot of stuff that definetly goes over my head which I will read later to understand it better.
+
+## Second assignment (a)
+
+This assignment we were tasked to install, configure and test a daemon with package-file-service structure. Unfortunately this day I overslept for the lecture so I missed most of the crucial information so honestly I am completely unaware where I was supposed to go with this assignment.
+
+## Third assignment (b)
+
+This assignment we were tasked with installing a master and slave in 1 machine and suggested using a fresh virtual machine and that is what I did so I started with creating a new debian virtual machine. I ran the usual commands "sudo apt-get upgrade", "sudo apt-get update", "sudo apt-get install micro" as I do every time I start a new virtual machine. So to install them on the same machine I simply installed both master and slave with commands "sudo apt-get install -y salt-master" and "sudo apt-get install -y salt-minion next I added the machine as master and a id with command sudoedit /etc/salt/minion 
+
+![image](https://user-images.githubusercontent.com/77589513/200889921-2725d285-1cad-4f09-95e6-1310f3b45b02.png)
+
+![image](https://user-images.githubusercontent.com/77589513/200890050-a2880855-2811-48ac-93f2-5f3128353846.png)
+
+Then I just restarted the services with commands "sudo systemctl restart salt-master.service" and "sudo systemctl restart salt-master.service" then just accepted the key
+
+## Fourth assignment (c) 
+
+The task for this was to run a state without the master-slave architecture and to analyze the debug print but I'm not quite sure to where to start with this.
