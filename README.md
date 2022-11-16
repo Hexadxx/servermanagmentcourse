@@ -145,3 +145,17 @@ I happened to add the files and commit the files on separate commits but that gi
 ## Third Assignment (c)
 
 For this assignment we were tasked with testing the "git reset --hard" by making a stupid mistake to git and NOT commiting it but still it's in there and want to get rid of it. I simply ran the command after making a random text file and nothing special happened except after looking at the directory the file disappeared.
+
+## Fourth Assignment (d)
+
+For this assignment we were tasked with creating a new depository to GitHub and the depository has to include the word car in the name and in the description of the depository and adding files to it. So I begin by going to https://github.com/ as I already am logged in it looks like this:
+
+![image](https://user-images.githubusercontent.com/77589513/202265600-c37ec7aa-0ff0-4c06-9029-151b82702be4.png)
+
+and choose the "New" option from top left corner as it opens up a setup like [this](https://i.imgur.com/HFBLuJE.png) which gives options to add a README and license files instead of the "Create a new repository" which simply creates a clean repository without anything in there. and make sure it is public as it is a school project and I want it to be seen publically and this is how the repository looks like:
+
+![image](https://user-images.githubusercontent.com/77589513/202268555-b0429524-805d-4d4e-9069-be9558f79500.png)
+
+## Fifth Assignment (e)
+
+For this assignment we were given to Clone the previously made repository, change things up a little bit and to push it to a web server. I tried looking up for something related to it but I got incredibly confused from all of it so I was unable to do this
