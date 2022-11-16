@@ -1,6 +1,8 @@
 # Server managment course
 Hello this is the documentation for the server managment course by Tero Karvinen.
+
 # H1 Homework
+[(src)](https://terokarvinen.com/2022/palvelinten-hallinta-2022p2/)
 
 ## First Assignment (x)
 
@@ -63,6 +65,7 @@ For this homework was about using something else besdes file.managed state which
 (note. all of the commands and knowledge I used here were mostly gotten from the lecture as I saved screenshots from it unless mentioned otherwise). 
 
 # H2 Package-File Service homework
+[(src)](https://terokarvinen.com/2022/palvelinten-hallinta-2022p2/)
 
 ## First assignment (x)
 
@@ -115,3 +118,30 @@ Then I just restarted the services with commands "sudo systemctl restart salt-ma
 ## Fourth assignment (c) 
 
 The task for this was to run a state without the master-slave architecture and to analyze the debug print but I'm not quite sure to where to start with this.
+
+# H3 Git
+[(src)](https://terokarvinen.com/2022/palvelinten-hallinta-2022p2/)
+
+## First Assignment (a)
+
+For this assignment was to write this Raport in MarkDown, but as I did that from the start so I have already done so.
+
+## Second Assignment (b)
+
+For this assignment we were tasked with creating a offline git directory an in the directory it had to include the word "cat" in the name so I created a new directory called the catdirectory and in there I initalized git with the command
+
+> git init
+
+next I created 2 files so it would not be empty called "cat.txt" and "cat.md" I wrote some random text in there and then used the command:
+
+> git add .
+
+which basically makes git notice you want to make updates to the git directory and lastly:
+
+> git commit -m "Commit information"
+
+I happened to add the files and commit the files on separate commits but that git commit -m "Info" commits the changes in the directory to git.
+
+## Third Assignment (c)
+
+For this assignment we were tasked with testing the "git reset --hard" by making a stupid mistake to git and NOT commiting it but still it's in there and want to get rid of it. I simply ran the command after making a random text file and nothing special happened except after looking at the directory the file disappeared.
