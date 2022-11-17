@@ -113,7 +113,7 @@ This assignment we were tasked with installing a master and slave in 1 machine a
 
 ![image](https://user-images.githubusercontent.com/77589513/200890050-a2880855-2811-48ac-93f2-5f3128353846.png)
 
-Then I just restarted the services with commands "sudo systemctl restart salt-master.service" and "sudo systemctl restart salt-master.service" then just accepted the key
+Then I just restarted the services with commands "sudo systemctl restart salt-master.service" and "sudo systemctl restart salt-minion.service" then just accepted the key
 
 ## Fourth assignment (c) 
 
