@@ -159,3 +159,67 @@ and choose the "New" option from top left corner as it opens up a setup like [th
 ## Fifth Assignment (e)
 
 For this assignment we were given to Clone the previously made repository, change things up a little bit and to push it to a web server. I tried looking up for something related to it but I got incredibly confused from all of it so I was unable to do this
+
+# H4 Omat komennot
+[(src)](https://terokarvinen.com/2022/palvelinten-hallinta-2022p2/)
+
+## First assignment (a)
+
+For this assignment we were tasked with just creating a script that runs as a command on your machine and install it on a slave machine with Salt. To start this I recalled how we did this on the lecture so I started by creating a file called "heimaailma.sh" with the command micor heimaailma.sh then added these lines into the file:
+
+![image](https://user-images.githubusercontent.com/77589513/203577577-672c58a7-df79-467d-a88b-76ba5696485b.png)
+
+The first line makes it so it uses bash as the default shell for executing the commands and then just added the line echo "hei maailma" which just prints the string hei maailma on the terminal.
+sources: (https://www.baeldung.com/linux/bash-shebang-lines)
+Next up from my recollection all I had to do was copy the heimaailma.sh file to /usr/local/bin/ folder with the command 
+
+    sudo cp heimaailma.sh /usr/local/bin/
+    
+then just tried running the command like normal, but for some reason it did not run and I was quite not sure what was the issue here so I decide to google what was wrong and the issue was simple after reading this [article](https://www.baeldung.com/linux/bash-shebang-lines) I realized I forgot 1 step that made it not work, I forgot to grant permissions to the file so it can read and write anywhere in the system and to give the permissions I used command:
+
+    chmod ugo+x heimaailma.sh
+    
+After running this command I tested the command by just running "heimaailma.sh" and it worked also tested by going to different directories just to make sure and it did indeed work. Finally I set it up so it would install the command to slaves. First what I did was go to directory /srv/salt/ if there is no salt then just create one. Next I created a folder that I named heimaailma. Next I created a init.sls file and added this:
+
+![image](https://user-images.githubusercontent.com/77589513/203627306-96d8a80f-f396-4189-8d27-f7975693b64a.png)
+
+The first line is the absolute path of the command where it is located, next line is "file.managed" which means you are managing the files when this is ran, next is the source basically the same file of the command except it has to be located in the salt folder and mode gives the command proper permissions. Finally I tested if it worked with the command "sudo salt-call --local state.apply heimaailma as you can see below it worked.
+
+![image](https://user-images.githubusercontent.com/77589513/203628904-52e04afa-7374-4675-9e6a-8ff070012e0d.png)
+
+Here is also the image of running the command: "ls -l /usr/local/bin/"
+
+![image](https://user-images.githubusercontent.com/77589513/203634405-73f85d93-44f9-4797-83c3-18e603f85992.png)
+
+
+## Second Assignment (b)
+
+For this assignment I was given the task of doing a whatsup.sh shell script ant turning it into a command. This whatsup.sh is supposed to be indicative of something like showing the time etc. and sending it to slaves just like before. So basically for this one I did everything exactly the same besides for the names of the files and what was inside the script. 
+
+Script:
+
+![image](https://user-images.githubusercontent.com/77589513/203633805-f45e386a-ffe4-4ac8-8eb2-17825b775e9b.png)
+
+init.sls:
+
+![image](https://user-images.githubusercontent.com/77589513/203633852-01581483-9aa9-4352-9738-aad320c4fa4a.png)
+
+Working example:
+
+![image](https://user-images.githubusercontent.com/77589513/203634857-5ad6d22a-3ded-49bb-b977-ee44013a5896.png)
+
+Salt test:
+
+![image](https://user-images.githubusercontent.com/77589513/203635225-3aeacaad-d9e9-41b9-8f32-71214c26f767.png)
+
+## Third Assignment (c)
+
+For this assignment we were tasked with creating a command using a python script with the name hello.py and to install it on a slave just like previous tasks. So I start with creating a directory in the home directory called hello, then created a file called hello.py added the line print("Hello World!") to test it works I ran command "python3 hello.py" it was a success it printed "Hello World!" as excpected. So next I moved to begin making it into a command by adding the Shebang above the print line called: #!/usr/bin/python3 quickly added the permissions with the command "sudo chmod ugo+x hello.py" then copied the file to /usr/local/bin/ then continued to /srv/salt/ and created a directory called hello and created init.sls file into the hello folder and into the init.sls file I put lines:
+
+![image](https://user-images.githubusercontent.com/77589513/203641301-c7cfd07c-4b7b-4ae1-a70a-7aef73c2c0ec.png)
+
+and sent it to the slave:
+
+![image](https://user-images.githubusercontent.com/77589513/203641879-8e22a2e5-0189-4879-b9c5-82d9a401f38a.png)
+
+Could not finish the entire homework as I did not have enough time but I will be finishing these on my own time later.
