@@ -223,3 +223,41 @@ and sent it to the slave:
 ![image](https://user-images.githubusercontent.com/77589513/203641879-8e22a2e5-0189-4879-b9c5-82d9a401f38a.png)
 
 Could not finish the entire homework as I did not have enough time but I will be finishing these on my own time later.
+
+# H5 Windows
+
+This assignment focuses on playing with salt on windows [source](https://terokarvinen.com/2022/palvelinten-hallinta-2022p2/) to homework
+
+## First assignment (a)
+
+This assignment we were tasked with creating a salt state into a sls file called "suolaikkuna.txt" First of course I installed salt on my windows machine so I googled "saltstack", entered saltstack projects homepage "https://saltproject.io/" then clicked on the "Download" button, chose "Windows" and downloaded the AMD64.msi file, you can choose the setup as well it does not have much difference (the AMD64 stands for being compatible with 64-bit architecture but the x86 which is 32-bit still works on 64-bit). Next after installing the setup after trying to run it I realized I could not, instead I needed to run it through the Windows PowerShell in administrator mode I actually learned this during the lecture. Next I ran the command
+
+> cd C:\Users\eetu1\Downloads
+
+and 
+
+> .\Salt-Minion-3004.2-1-Py3-AMD64.msi
+
+to open the setup and finish installing Salt on Windows. After installing Salt I realized I had to restart PowerShell to finalize the installation or to make it recognize salt is in the system pretty sure it's the latter one. To test it worked I ran the command "salt-call" and it worked as it shows:
+
+![image](https://user-images.githubusercontent.com/77589513/204938022-2a98885e-8ec2-43f3-960e-81eab019960d.png)
+
+So next from memory I remember you needed to create the /srv/salt/ filepath on the machine to make it work on windows (memory from lecture) so I tried that of course I put it into the C:/Temp directory as it was suggested on the tips and recommendations part for the homework. So to do this I just thought about doing it how it is on Linux. I got stuck in this error and was unable to continue:
+
+![image](https://user-images.githubusercontent.com/77589513/204947298-fdaad345-13dc-406c-928b-294a45950ccd.png)
+
+## Second assignment (b)
+Collecting system information into a text file
+Not sure if this was supposed to do with salt if so I had no idea how but on windows command line there is a command called systeminfo and I just painted it and copied it to a text file.
+
+## Third Assignment (c)
+
+This assignment was to show how to check if a TCP port was open both on linux and windows.
+So on Windows I used a command called netstat -a here is the result:
+
+![image](https://user-images.githubusercontent.com/77589513/204949139-0cd0f2da-3d38-4ef3-bf40-c4646b9cc275.png)
+
+On linux I used a command netstat -at (shows all TCP connections):
+
+![image](https://user-images.githubusercontent.com/77589513/204950126-1f94f322-c6fa-4aaf-a3ef-cc0c9f954fa3.png)
+
