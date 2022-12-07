@@ -294,4 +294,45 @@ This article is a quickstart guide on Salt Stack
 
 This assignment is to test out and creating a virtual machine with Vagrant
 
-There was a tip to have the Vagrant on a actual computer instead of a virtual machine as Vagrant basically just controls VirtualBox for you. So as I don't currently have a Linux PC so I have to host the Vagrant on Windows so I decided to head over to Vagrants website to download it for Windows, launched the installer and finished the installation
+There was a tip to have the Vagrant on a actual computer instead of a virtual machine as Vagrant basically just controls VirtualBox for you. So as I don't currently have a Linux PC so I have to host the Vagrant on Windows so I decided to head over to Vagrants website to download it for Windows, launched the installer and finished the installation. Next I opened up Microsoft Powershell with Administrator privileges and created a directory called Vagrant to C:\Users\eetu1\ and the path looking like "C:\Users\eetu1\Vagrant>" next I used this [guide](https://terokarvinen.com/2017/04/11/vagrant-revisited-install-boot-new-virtual-machine-in-31-seconds/) to install the virtual machine but instead of using vagrant init bento/ubuntu-16.04 I used debian/bullseye64 then ran command vagrant up. First I got an error:
+
+    The box 'debian/bullseye64' could not be found or
+    could not be accessed in the remote catalog. If this is a private
+    box on HashiCorp's Vagrant Cloud, please verify you're logged in via
+    `vagrant login`. Also, please double-check the name. The expanded
+    URL and error message are shown below:
+
+And took me a bit but according to this page: https://github.com/hashicorp/vagrant/issues/12636 there was a mention of turning off Kaspersky anti-virus which I actually have myself so I tried and it worked as shown in the pictures below:
+
+![image](https://user-images.githubusercontent.com/77589513/206275884-0cc41004-1a2d-4f93-b970-68521d36fa75.png)
+
+![image](https://user-images.githubusercontent.com/77589513/206275912-3588d5a0-d7ee-45ea-aab8-118cb60698d9.png)
+
+![image](https://user-images.githubusercontent.com/77589513/206275938-2ee679fb-3892-4078-a06f-5da4ce605a8c.png)
+
+And tested it works with the command vagrant ssh and it confirmed it worked as shown below:
+
+![image](https://user-images.githubusercontent.com/77589513/206276276-e4151d56-e4cb-4c02-83ad-cee5cab95f9e.png)
+
+## Third Assignment (b)
+
+For this assignment we were tasked with creating 2 virtual machines with Vagrant, but the catch is they are supposed to be in the same private network. To start off I created a new directory called Assignment which I created a vagrantfile into with the command vagrant init. Next I of course went and opened this guide by Tero Karvinen (https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/) as I am unaware what the script adds to the code I just decided to exclude it so my vagrantfile ended up looking like this:
+
+![image](https://user-images.githubusercontent.com/77589513/206282957-9e8aab5f-5d7c-4a91-a68e-49b7310a7b45.png)
+****
+
+And it worked as you can see it created 2 virtual machines into my virtualbox:
+
+![image](https://user-images.githubusercontent.com/77589513/206283555-ad935ba9-7ec9-4faa-b842-6614744e178f.png)
+
+Next I tested if they were actually in the same network by first connecting to the "isanta" with the command "vagrant ssh isanta" and it worked so next I ran 2 commands to test if they worked as shown in the article. First I tried "ping -c 1 192.168.88.102" which tested the connection to the renki1 machine also the option "-c 1" in the command means it limits the amounts it's run so in this case only once and it worked it indeed connects to the machine "renki1":
+
+![image](https://user-images.githubusercontent.com/77589513/206285768-8c2c2757-cba3-402c-8c68-781bd095380d.png)
+
+Also the other test was so it connects to internet with the command "ping -c 1 8.8.8.8" which is Googles Nameserver and it connected:
+
+![image](https://user-images.githubusercontent.com/77589513/206285657-e589756a-fe3d-4aa1-9a6b-cce30019ec39.png)
+
+Fourth Assignment (c)
+
+In this assignment we are tasked with adding a Salt master/minion architecture to the previous assignments isanta and renki1. First off I took ssh connection to "isanta" then ran the basic commands "sudo apt-get upgrade, sudo apt-get update, sudo apt update and sudo apt upgrade" then continued onto installing salt master with the command "sudo apt-get install -y salt-master" (option -y is just for convenience as it basically lets you skip unnecessary confirmation of installing the package) next I did the same with renki1 except for renki1 I installed the salt-minion instead. For the minion I also had to do some configuring so it connects to the master so I enter the command "sudoedit /etc/salt/minion" and uncommented the parts "master" and "id:" and added the ip of the master to the master portion and I just put isanta as the id and restarted the service with the command: "sudo systemctl restart salt-minion.service". Next I went back to the isanta machine as I now have to accept the minion machine, to do this I just enter the command: "sudo salt-key -A" on the master machine aka "isanta"
