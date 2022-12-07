@@ -261,3 +261,37 @@ On linux I used a command netstat -at (shows all TCP connections):
 
 ![image](https://user-images.githubusercontent.com/77589513/204950126-1f94f322-c6fa-4aaf-a3ef-cc0c9f954fa3.png)
 
+# H6 Kulkurin projekti
+
+## First Assignment (x)
+
+The first assignment for this homework is to read  and summarize articles and pick some central commands related to self.
+
+### First article (https://terokarvinen.com/2017/04/11/vagrant-revisited-install-boot-new-virtual-machine-in-31-seconds/)
+
+This article as titled shows how to install and boot a new virtual machine in 31 seconds, give or take.
+- First shows how to install virtualbox and vagrant (for Debian/Ubuntu)
+- Second shows how to initialize a new virtual machine 
+
+### Second Article (https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/)
+
+This article is about making a two machine virtual network with Debian 11 Bullseye and Vagrant
+
+- First step is to install Virtualbox and Vagrant (also shares links to windows installers)
+- Article shows how to create a Vagrantfile and what to add into the Vagrantfile(I wished for there to be a slightly more indepth explanation on what the Vagrantfile is and what its purpose is)
+- Shows how to test if the hosts can connect to internet
+- Article shows how to destroy Vagrant machines
+- Also gives a little bit of troubleshooting tips for possible issues.
+
+### Third Article (https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/)
+
+This article is a quickstart guide on Salt Stack
+
+- Article shows how to install Salt Stack master and minion and do a basic configuration to connect them
+- Shows basic commands to test if the Salt Stack is actually working properly
+
+## Second Assignment (a)
+
+This assignment is to test out and creating a virtual machine with Vagrant
+
+There was a tip to have the Vagrant on a actual computer instead of a virtual machine as Vagrant basically just controls VirtualBox for you. So as I don't currently have a Linux PC so I have to host the Vagrant on Windows so I decided to head over to Vagrants website to download it for Windows, launched the installer and finished the installation
