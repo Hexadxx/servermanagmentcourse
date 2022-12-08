@@ -341,4 +341,4 @@ In this assignment we are tasked with adding a Salt master/minion architecture t
 
 ## Fifth Assignment (d)
 
-This assignment I will be making a mini project that can be used in a workplace. I will be making this project on a new repository:
+This assignment I will be making a mini project that can be used in a workplace. I will be making this project on a new repository: https://github.com/Hexadxx/mysalt
